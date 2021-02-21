@@ -9,7 +9,7 @@ namespace GameProject.Entities.Concrete
         public int GamerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public long IdentityNumber { get; set; }
     }
 }

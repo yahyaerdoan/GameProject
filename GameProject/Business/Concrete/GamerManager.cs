@@ -34,7 +34,14 @@ namespace GameProject.Business.Concrete
 
         public void Update(Gamer gamer)
         {
-            Console.WriteLine(gamer.FirstName + " " + gamer.LastName + "\n" + "Kaydınız Başarıyla Güncellenmiştir!");
+            if (_userValidationService.Validate(gamer))
+            {
+                Console.WriteLine(gamer.FirstName + " " + gamer.LastName + "\n" + "Kaydınız Başarıyla Güncellenmiştir!");
+            }
+            else
+            {
+                Console.WriteLine("Doğrulama Başarısız! Güncelleme başarısız!.");
+            }           
         }
     }
 }

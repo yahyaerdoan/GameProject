@@ -9,15 +9,15 @@ namespace GameProject
     {
         static void Main(string[] args)
         {
-            GamerManager gamerManager = new GamerManager(new UserValidationManager());
+            GamerManager gamerManager = new GamerManager(new MernisUserValidationServiceManager());
             Gamer gamer = new Gamer();
             gamerManager.Add(new Gamer
             {
                 GamerId = 1,
-                DateOfBirth = 1993,
+                DateOfBirth = new DateTime(1992,02,14),
                 FirstName = "Yahya",
                 LastName = "ERDOĞAN",
-                IdentityNumber = 1234567891011
+                IdentityNumber = 2
             });
 
             CampaignRateManager campaignRateManager = new CampaignRateManager();
@@ -27,13 +27,11 @@ namespace GameProject
             GameManager gameManager = new GameManager();
             Game game = new Game { GameId = 1, GameName = "Minecraft", GamePrice = 145 };
             gameManager.Add(game);
+           
 
-            SalesManager salesManager = new SalesManager();
+            SalesManager salesManager = new SalesManager();            
             salesManager.Sales(gamer, game);
             salesManager.CampaignSales(game, gamer, campaign);
-
-
-
 
         }
     }
