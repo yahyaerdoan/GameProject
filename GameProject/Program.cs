@@ -1,4 +1,4 @@
-﻿
+﻿using GameProject.Adapters;
 using GameProject.Business.Concrete;
 using GameProject.Entities.Concrete;
 using System;
@@ -9,16 +9,16 @@ namespace GameProject
     {
         static void Main(string[] args)
         {
-            GamerManager gamerManager = new GamerManager(new MernisUserValidationServiceManager());
-            Gamer gamer = new Gamer();
-            gamerManager.Add(new Gamer
+            GamerManager gamerManager = new GamerManager(new UserValidationManager());
+            Gamer gamer = new Gamer
             {
                 GamerId = 1,
-                DateOfBirth = new DateTime(1992,02,14),
+                DateOfBirth = new DateTime(1992, 02, 14),
                 FirstName = "Yahya",
                 LastName = "ERDOĞAN",
-                IdentityNumber = 2
-            });
+                IdentityNumber = 9876
+            };
+            gamerManager.Add(gamer);
 
             CampaignRateManager campaignRateManager = new CampaignRateManager();
             Campaign campaign = new Campaign { CampaingId = 1, CampaingName = "Eğlenceli %25 İndirim", DiscountRate = 0.25M };

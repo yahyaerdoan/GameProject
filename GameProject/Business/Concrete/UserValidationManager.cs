@@ -3,23 +3,18 @@ using GameProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using GameProject.Adapters;
 
 namespace GameProject.Business.Concrete
 {
     public class UserValidationManager : IUserValidationService
     {
-
+        IUserValidationService userValidationService;
         public bool Validate(Gamer gamer)
         {
-            if (gamer.DateOfBirth == (new DateTime(1992, 02, 14)) && gamer.FirstName == "Yahya"
-                && gamer.LastName == "ERDOĞAN" && gamer.IdentityNumber == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            userValidationService = new MernisServiceAdapter();
+            
+            return userValidationService.Validate(gamer);
         }
     }
 }

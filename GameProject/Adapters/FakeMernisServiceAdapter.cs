@@ -4,9 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameProject.Business.Concrete
+namespace GameProject.Adapters
 {
-    public class MernisUserValidationServiceManager : IUserValidationService
+    // yazayım anlatacağım tamam
+    public class FakeMernisServiceAdapter : IUserValidationService
     {
         public bool Validate(Gamer gamer)
         {
@@ -14,4 +15,3 @@ namespace GameProject.Business.Concrete
         }
     }
 }
-
